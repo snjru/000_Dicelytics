@@ -32,7 +32,7 @@ def generate_dice_pip_dataset(
     output_file_path.parent.mkdir(parents=True, exist_ok=True)
 
     # Relative normalized positions of pips on a dice face (-1.0 to 1.0 scale)
-    offset = 0.5
+    offset = 0.75
     pip_patterns = {
         1: [(0.0, 0.0)],
         2: [(-offset, -offset), (offset, offset)],
@@ -45,7 +45,7 @@ def generate_dice_pip_dataset(
 
     # Open CSV file for writing
     with open(output_file_path, mode='w', newline='', encoding='utf-8') as csv_file:
-        fieldnames = ['sample_id', 'dice_id', 'pip_index_in_dice', 'pip_value', 'pip_x_mm', 'pip_y_mm']
+        fieldnames = ['sample_id', 'dice_id', 'pip_index_in_dice', 'pip_value','dice_deg', 'pip_x_mm', 'pip_y_mm']
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
 
@@ -95,12 +95,15 @@ def generate_dice_pip_dataset(
                     abs_x = round(cx + rot_x + noise_x, 3)
                     abs_y = round(cy + rot_y + noise_y, 3)
 
+                    deg = round(math.degrees(rot_angle),1)
+
                     # Write record to CSV
                     writer.writerow({
                         'sample_id': sample_id,
                         'dice_id': dice_id,
                         'pip_index_in_dice': pip_idx,
                         'pip_value': pip_value,
+                        'dice_deg': deg,
                         'pip_x_mm': abs_x,
                         'pip_y_mm': abs_y
                     })
