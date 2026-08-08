@@ -15,7 +15,7 @@ class DicePlotterGUI:
 
         if not self.csv_path.exists():
             print(f"[ERROR] CSV file not found: {self.csv_path}")
-            print("First, run: python3 scripts/pip_generator.py")
+            print("First, run: py scripts/pip_generator.py")
             return
 
         # Load all CSV records
@@ -102,11 +102,12 @@ class DicePlotterGUI:
 
             # Draw square dice frame (8mm x 8mm)
             dice_size = 8.0
+            # [FIXED] Correct calculation for Rectangle bottom-left corner to align center
             square = patches.Rectangle(
                 (cx - dice_size / 2.0, cy - dice_size / 2.0),
                 dice_size, dice_size,
                 angle=dice_deg,
-                rotation_point='center',
+                rotation_point='center',  # Requires Matplotlib >= 3.6
                 fill=True, facecolor=color, alpha=0.15, edgecolor=color, linewidth=2,
                 label=f'Dice {dice_id} (Val: {dice_pips["pip_value"].iloc[0]})'
             )
@@ -124,7 +125,11 @@ class DicePlotterGUI:
         status_text = " [PLAYING...]" if self.is_playing else ""
         self.ax.set_title(f"Dice Pips Synthetic Data (Sample ID: {sample_id} / {self.max_sample_id}){status_text}")
         self.ax.grid(True, linestyle=':', alpha=0.6)
-        self.ax.legend(loc='upper right')
+
+        # [FIXED] Remove duplicate entries from the legend
+        handles, labels = self.ax.get_legend_handles_labels()
+        by_label = dict(zip(labels, handles))
+        self.ax.legend(by_label.values(), by_label.keys(), loc='upper right', fontsize='small')
 
         self.fig.canvas.draw_idle()
 

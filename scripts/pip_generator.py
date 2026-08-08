@@ -32,7 +32,7 @@ def generate_dice_pip_dataset(
     output_file_path.parent.mkdir(parents=True, exist_ok=True)
 
     # Relative normalized positions of pips on a dice face (-1.0 to 1.0 scale)
-    offset = 0.75
+    offset = 1.0
     pip_patterns = {
         1: [(0.0, 0.0)],
         2: [(-offset, -offset), (offset, offset)],
