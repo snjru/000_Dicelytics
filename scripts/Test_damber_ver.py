@@ -1,0 +1,7 @@
+print("\n")
+print("__file__ : " + __file__ )
+print("__name__ : " + __name__ )
+#print("__doc__ : " + __doc__ )
+print("__package__ : " + __package__ )
+print("__spec__ : " + __spec__ )
+print("\n")
