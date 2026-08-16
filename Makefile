@@ -14,10 +14,10 @@ TEST_SRCS	:= $(wildcard $(TEST_DIR)/*.cpp)
 
 # Generate target executable names from test fiel
 # e.g., test/tes_DRV8835_motor.cpp -> bin/tes_DRV8835_motor
-TAEGETS		:= $(patsubst $(TEST_DIR)/%.cpp, $(BIN_DIR)/%.cpp, $(TESR_SRCS))
+TARGETS		:= $(patsubst $(TEST_DIR)/%.cpp, $(BIN_DIR)/%.cpp, $(TESR_SRCS))
 
 # Default target: build all tests
-all: $(TAEGETS)
+all: $(TARGETS)
 
 # Rule to build each test executable
 $(BIN_DIR)/%: $(TEST_DIR)/%.cpp $(COMMON_SRCS)
