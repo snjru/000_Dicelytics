@@ -5,7 +5,7 @@
 #include <string>
 
 using namespace std;
-using namespace gpiod;
+
 
 // Contoroled by DRV8835 motor class
 class Drv8835 {
