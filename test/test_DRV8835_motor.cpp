@@ -1,34 +1,33 @@
 #include "DRV8835.hpp"
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 namespace std;
 
 int main() {
-    // Define GPIO pin numbers (Broadcom GPIO numbers)
-    constexpr int GPIO_IN1 = 20;
-    constexpr int GPIO_IN2 = 21;
+    // Example: Using BCM GPIO 20 and 21 (Adjust chip_name if necessary, e.g., "gpiochip0")
+    DRV8835 motor(20, 21, "gpiochip4");
     
-    try {
-        DRV8835 motor(GPIO_IN1, GPIO_IN2);
-
-        cout << "Rotate Forward for 3.0 seconds..." << endl;
-        motor.run (DRV8835::Direction::FORWARD, 3.0);
-
-        cout << "Short Brake for 1.0 seconds..." << endl;
-        motor.brake (1.0);
-
-        cout << "Rotate Backward for 2.0 seconds..." << endl;
-        motor.run (DRV8835::Direction::BACKWARD, 2.0);
-
-        cout << "Coast Stop for 2.0 seconds..." << endl;
-        motor.stop (2.0);
-
-        cout << "Sepuence finished." << endl;
-    
-    } catch (const exception& e) {
-        cerr << "Error: " << e.waht() << endl;
+    if (!motor.init()){
+        cerr << "Initialization failed." << endl;
         return 1;
     }
+    
+    cout << "Moving forward..." << endl;
+    motor.setDirection(DRV8835::Direction::FORWARD);
+    this_thread::sleep_for(chrono::seconds(2);
+
+    cout << "Applying brake..." << endl;
+    motor.setDirection(DRV8835::Direction::BRAKE);
+    this_thread::sleep_for(chrono::seconds(500);
+
+    cout << "Moving backward..." << endl;
+    motor.setDirection(DRV8835::Direction::BACKWARD);
+    this_thread::sleep_for(chrono::seconds(2);
+
+    cout << "Stopping morot..." << endl;
+    motor.stop();
 
     return 0;
 }

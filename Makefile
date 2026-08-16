@@ -1,7 +1,7 @@
 # Compiler and Flags
 CXX      := g++
 CXXFLAGS := -Wall -O2 -Iinclude
-LIBS     := -lpigpio -lrt -lpthread
+LIBS     := -lgpiodcxx -lgpiod -lrt -lpthread
 
 # Directories
 SRC_DIR  := src
@@ -13,7 +13,6 @@ COMMON_SRCS := $(wildcard $(SRC_DIR)/*.cpp)
 TEST_SRCS   := $(wildcard $(TEST_DIR)/*.cpp)
 
 # Generate target executable names from test files
-# e.g., test/tes_DRV8835_motor.cpp -> bin/tes_DRV8835_motor
 TARGETS     := $(patsubst $(TEST_DIR)/%.cpp, $(BIN_DIR)/%, $(TEST_SRCS))
 
 # Default target: build all tests

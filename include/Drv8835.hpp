@@ -1,35 +1,43 @@
 #ifndef DRV8835_HPP
 #define DRV8835_HPP
 
-#include <pigpio.h>
-#include <chrono>
-#include <thread>
-#include <stdexcept>
+#include <gpiod.h>
+#include <string>
 
-class Drv8835Motor {
+using namespace std;
+using namespace gpiod;
+
+// Contoroled by DRV8835 motor class
+class Drv8835 {
 public:
     enum class Direction {
-        FORWARD,
-        BACKWARD
+        FORWARD,    // Forward rotation (IN1: HIGH, IN2: LOW)
+        BACKWARD,   // Reverse rotation (IN1: LOW, IN2: HIGH)
+        BRAKE,      // Active brake (IN1: HIGH, IN2: HIGH)
+        COAST       // Coast / Stop (IN1: LOW, IN2: LOW)
     };
 
-    // Constructor: Assign GPIO pins for IN1 and IN2
-    DRV8835(int in1Pin, int in2Pin);
-
+    // Constructor: specify GPIO pin numbers and the GPIO chip name
+    DRV8835(int in1Pin, int in2Pin, const string& chip_name = "gpiochip4");
     // Destructor: Clean up GPIO states
     ~DRV8835();
 
-    // Core control functions
-    void run(Direction dir, double seconds);
-    void brake(double seconds);
-    void stop(double seconds);
+    // Initialize GPIO lines
+    bool init();
+
+    // Motor control GPIO lines
+    void setDirection(Direction dir);
+    void stop();
 
 private:
     int in1Pin_;
     int in2Pin_;
+    string chip_name_;
 
-    // Helper to sleep in seconds (accepts floating-point numbers)
-    void sleepSecounds(double seconds);
+    chip chip_;
+    line in1_line_;
+    line in2_line_;
+    bool initialized_;
 };
 
-#endif
+#endif  // DRV8835_HPP

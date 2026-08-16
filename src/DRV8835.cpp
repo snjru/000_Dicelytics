@@ -1,61 +1,62 @@
 #include "DRV8835.hpp"
+#include <iostream>
 
-DRV8835::DRV8835(int in1Pin, int in2Pin)
-    : in1Pin_(in1Pin), in2Pin_(in2Pin) {
-
-    // Initialice the pigpio library
-    if (gpioInitialise() < 0) {
-        throw std::runtime_error("pigpio initilalization failed");
-    }
-
-    // Set designated GPIO pins as outputs
-    gpioSetMode(in1Pin_, PI_OUTPUT);
-    gpioSetMode(in2Pin_, PI_OUTPUT);
-
-    // Ensure motor is stopped initially
-    stop(0,0);
-}
+DRV8835::DRV8835(int in1Pin, int in2Pin, const string& chip_name)
+    : in1Pin_(in1Pin), in2Pin_(in2Pin), chip_name_(chip_name), initialized_(false) {}
 
 DRV8835::~DRV8835() {
-    // Satety measure: stop motor and release pigpio resources on destroy
-    stop(0,0);
-    gpioTerminate();
-}
-
-void DRV8835::run(Direction dir, double seconds) {
-    if (dir == Derection::FORWARD) {
-        // IN1 = HIGH, IN2 = LOW -> Foward
-        gpioWrite(in1Pin_, 1);
-        gpioWrite(in2Pin_, 0);
-    } else {
-        // IN1 = LOW, IN2 = HIGH -> Backward
-        gpioWrite(in1Pin_, 0);
-        gpioWrite(in2Pin_, 1);
+    if (initialized_) {
+        stop(0,0);
+        in1_line_.release();
+        in2_line_.release();
     }
-
-    sleepSeconds(secondes);
 }
 
-void DRV8835::brake(double seconds) {
-    // Short breake: IN1 = HIGH, IN2 = HIGH
-    gpioWrite(in1Pin_, 1);
-    gpioWrite(in1Pin_, 1);
+bool DRV8835::init() {
+    try {
+        // Open the GPIO chip
+        chip_ = gpiod::chip(chip_name_);
 
-    sleepSeconds(secondes);
-}
+        // Get the GPIO lines for IN1 and IN2
+        in1_line_ = chip_.get_line(in1_pin_);
+        in2_line_ = chip_.get_line(in2_pin_);
 
-void DRV8835::stop(double seconds) {
-    // Coast stop (High impedance): IN1 = LOW, IN2 = LOW
-    gpioWrite(in1Pin_, 0);
-    gpioWrite(in1Pin_, 0);
+        // Request lines as output with default initial value 0 (LOW)
+        in1_line_.request({"DRV8835_IN1", gpiod::line_request::DIRECTION_OUTPUT, 0}, 0);
+        in2_line_.request({"DRV8835_IN2", gpiod::line_request::DIRECTION_OUTPUT, 0}, 0);
 
-    sleepSeconds(secondes);   
-}
-
-void DRV8835::sleepSeconds(double seconds) {
-    if (seconds > 0.0) {
-        // High-precision sleep using C++11 std::chrono
-        auto duration = std::chrono::duration<double>(seconds);
-        std::this_thread::sleep_for(duration);
+        initialized_ = true;
+        return true;
+    } catch (const exception& e) {
+        cerr << "[DRV8835 Error] Failed to initialize libgpiod: " << e.what() << endl;
+        return false;
     }
+}
+
+void DRV8835::setDirection(Direction dir) {
+    if (!initialized_) return;
+
+    switch (dir) {
+        case Direction::FORWARD:
+            in1_line_.set_value(1);
+            in2_line_.set_value(0);
+            break;
+        case Direction::BACKWARD:
+            in1_line_.set_value(0);
+            in2_line_.set_value(1);
+            break;
+        case Direction::BRAKE:
+            in1_line_.set_value(1);
+            in2_line_.set_value(1);
+            break;
+        case Direction::COAST:
+        default:
+            in1_line_.set_value(0);
+            in2_line_.set_value(0);
+            break;
+    }
+}
+
+void DRV8835::stop() {
+    setDirection(Direction::COAST);
 }
