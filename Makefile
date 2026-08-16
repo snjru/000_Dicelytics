@@ -1,0 +1,31 @@
+# Compiler and Flags
+CXX		:= g++
+CXXFLAGS:= -Wall -02 -Iinclude
+LIBS	:= -lpigpio -lrt lpthread
+
+# Directories
+SRC_DIR := src
+TEST_DIR:= test
+BIN_DIR := bin
+
+# Sources
+COMMON_SRCS	:= $(wildcard $(SRC_DIR)/*.cpp)
+TEST_SRCS	:= $(wildcard $(TEST_DIR)/*.cpp)
+
+# Generate target executable names from test fiel
+# e.g., test/tes_DRV8835_motor.cpp -> bin/tes_DRV8835_motor
+TAEGETS		:= $(patsubst $(TEST_DIR)/%.cpp, $(BIN_DIR)/%.cpp, $(TESR_SRCS))
+
+# Default target: build all tests
+all: $(TAEGETS)
+
+# Rule to build each test executable
+$(BIN_DIR)/%: $(TEST_DIR)/%.cpp $(COMMON_SRCS)
+	@mkdir -p $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) $< $(COMMON_SRCS) -o $@ $(LIBS)
+
+# Clean up build binaries
+clean:
+		rm -rf $(BIN_DIR)
+
+.PHONY: all clean
