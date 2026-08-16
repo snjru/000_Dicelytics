@@ -18,7 +18,7 @@ public:
     };
 
     // Constructor: specify GPIO pin numbers and the GPIO chip name
-    DRV8835(int in1Pin, int in2Pin, const string& chip_name = "gpiochip4");
+    DRV8835(int in1_pin, int in2_pin, const string& chip_name = "gpiochip4");
     // Destructor: Clean up GPIO states
     ~DRV8835();
 
@@ -30,13 +30,13 @@ public:
     void stop();
 
 private:
-    int in1Pin_;
-    int in2Pin_;
+    int in1_pin_;
+    int in2_pin_;
     string chip_name_;
 
-    chip chip_;
-    line in1_line_;
-    line in2_line_;
+    gpiod::chip chip_;
+    gpiod::line in1_line_;
+    gpild::line in2_line_;
     bool initialized_;
 };
 
