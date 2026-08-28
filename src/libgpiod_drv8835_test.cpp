@@ -4,8 +4,8 @@
 #include <chrono>
 
 // Pin assignments
-constexpr unsigned int PIN_ENABLE = 17; // Morot enable and brake control
-constexpr unsigned int PIN_PHASE  = 27; // DIrection control
+constexpr unsigned int PIN_AENBL = 17; // Morot enable and brake control
+constexpr unsigned int PIN_APHASE = 27; // DIrection control
 
 // namespace setting
 using namespace std;
@@ -27,34 +27,33 @@ int main(){
         // 3. Request control of the GPIO lines
         auto request = chip.prepare_request()
             .set_consumer("drv8835-motor-control")
-            .add_line_settings(PIN_ENABLE, settings)
-            .add_line_settings(PIN_PHASE, settings)
+            .add_line_settings(PIN_AENBL, settings)
+            .add_line_settings(PIN_APHASE, settings)
             .do_request();
 
         cout << "--- Motor Control Started (" << chip_path << ") ---" << endl;
 
         // Step 1: Forward rotation (2 seconds)
         cout << "1.Forward start" << endl;
-        request.set_value(PIN_PHASE, ::gpiod::line::value::INACTIVE); // LOW (Forward direction)
-        request.set_value(PIN_ENABLE, ::gpiod::line::value::ACTIVE);  // HIGH (Start rotation)
+        request.set_value(PIN_APHASE, ::gpiod::line::value::INACTIVE); // LOW (Forward direction)
+        request.set_value(PIN_AENBL, ::gpiod::line::value::ACTIVE);  // HIGH (Start rotation)
         this_thread::sleep_for(::chrono::seconds(2));
 
         // Step 2: Brake stop (2 second)
         cout << "2.Brake stop" << endl;
-        request.set_value(PIN_ENABLE, ::gpiod::line::value::INACTIVE); // LOW (Short brake)
+        request.set_value(PIN_AENBL, ::gpiod::line::value::INACTIVE); // LOW (Short brake)
         this_thread::sleep_for(::chrono::seconds(2));
 
         // Step 3: Reverse rotation (2 seconds)
         cout << "3.Reverse start" << endl;
-        request.set_value(PIN_PHASE, ::gpiod::line::value::ACTIVE);   // HIGH (Reverse direction)
-        ::this_thread::sleep_for(::chrono::milliseconds(10));
-        request.set_value(PIN_ENABLE, ::gpiod::line::value::ACTIVE);  // HIGH (Start rotation)
+        request.set_value(PIN_APHASE, ::gpiod::line::value::ACTIVE);   // HIGH (Reverse direction)
+        request.set_value(PIN_AENBL, ::gpiod::line::value::ACTIVE);  // HIGH (Start rotation)
         this_thread::sleep_for(::chrono::seconds(2));
 
         // Step 4: Final stop
         cout << "4.Stop" << endl;
-        request.set_value(PIN_ENABLE, ::gpiod::line::value::INACTIVE); // LOW (Brake and disable)
-        this_thread::sleep_for(::chrono::seconds(1));
+        request.set_value(PIN_AENBL, ::gpiod::line::value::INACTIVE); // LOW (Brake and disable)
+        this_thread::sleep_for(::chrono::seconds(2));
 
         cout << "--- Control Completed ---" << endl;
 
