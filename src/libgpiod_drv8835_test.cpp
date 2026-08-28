@@ -11,34 +11,27 @@ constexpr unsigned int PIN_PHASE  = 27; // DIrection control
 using namespace std;
 
 int main(){
-    // Select GPIO chip based on hardware (Pi 5 vs older models/Zero)
-    std::string chip_name = "gpiochip4"; // Default for Raspberry Pi 5
-    try {
-        ::gpiod::chip test_chip(chip_name);
-    } catch (...){
-        chip_name = "gpiochip0"; // Fallback for Raspberry Pi 4 / Zero 2 W
-    }
-
+    // Raspberry Pi Zero 2 W uses gpiochip0
+    const std::string chip_path = "/dev/gpiochip0";
+    
     try {
         // 1. Open the GPIO chip
-        ::gpiod::chip chip(chip_name);
+        ::gpiod::chip chip(chip_path);
 
         // 2. Configure line settings (Output mode, initial state: LOW)
-        ::getpid::line_settings settings;
-        settings.set_direction(::gpio::line::direction::OUTPUT);
+        ::gpiod::line_settings settings;
+        settings.set_direction(::gpiod::line::direction::OUTPUT);
         settings.set_output_value(::gpiod::line::value::INACTIVE);
 
-        ::gpiod::line_config line_cfg;
-        line_cfg.add_line_settings(PIN_ENABLE, settings);
-        line_cfg.add_line_settings(PIN_PHASE, settings);
         
         // 3. Request control of the GPIO lines
-        auto request = ship.prepare_request()
+        auto request = chip.prepare_request()
             .set_consumer("drv8835-motor-control")
-            .configure_lines(line_cfg)
+            .add_line_settings(PIN_ENABLE, settings)
+            .add_line_settings(PIN_PHASE, settings)
             .do_request();
 
-        cout << "--- Motor Control Started (" << chip_name << ") ---" << endl;
+        cout << "--- Motor Control Started (" << chip_path << ") ---" << endl;
 
         // Step 1: Forward rotation (2 seconds)
         cout << "1.Forward start" << endl;
@@ -46,19 +39,20 @@ int main(){
         request.set_value(PIN_ENABLE, ::gpiod::line::value::ACTIVE);  // HIGH (Start rotation)
         this_thread::sleep_for(::chrono::seconds(2));
 
-        // Step 2: Brake stop (1 second)
-        cout << "2. Brake stop" << endl;
+        // Step 2: Brake stop (2 second)
+        cout << "2.Brake stop" << endl;
         request.set_value(PIN_ENABLE, ::gpiod::line::value::INACTIVE); // LOW (Short brake)
-        this_thread::sleep_for(::chrono::seconds(1));
+        this_thread::sleep_for(::chrono::seconds(2));
 
         // Step 3: Reverse rotation (2 seconds)
         cout << "3.Reverse start" << endl;
         request.set_value(PIN_PHASE, ::gpiod::line::value::ACTIVE);   // HIGH (Reverse direction)
+        ::this_thread::sleep_for(::chrono::milliseconds(10));
         request.set_value(PIN_ENABLE, ::gpiod::line::value::ACTIVE);  // HIGH (Start rotation)
         this_thread::sleep_for(::chrono::seconds(2));
 
         // Step 4: Final stop
-        cout << "4. Stop" << endl;
+        cout << "4.Stop" << endl;
         request.set_value(PIN_ENABLE, ::gpiod::line::value::INACTIVE); // LOW (Brake and disable)
         this_thread::sleep_for(::chrono::seconds(1));
 
