@@ -1,0 +1,100 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Dicelyticsプロローグ" id="dicelytics-prologue-01">
+    <mxGraphModel dx="4029" dy="2506" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="2350" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;div style=&quot;font-weight: bold; letter-spacing: 1px;&quot;&gt;&lt;font style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 45px;&quot;&gt;⚅⚄⚃&amp;nbsp;Dicelytics&amp;nbsp;⚆⚇⚈&lt;/span&gt;&lt;br&gt;&lt;font style=&quot;font-size: 34px;&quot;&gt;(製作中)&lt;/font&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;margin-top: 8px; font-size: 20px;&quot;&gt;序章：イカサマサイコロを、あなたは見抜けるか？&lt;/div&gt;&lt;div style=&quot;margin-top: 10px; color: rgb(201, 201, 232); font-style: italic; font-size: 13px;&quot;&gt;&quot;Every roll has a tell. We call its bluff — with statistics.&quot;&lt;/div&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#0f0f1a;fontColor=#ffffff;align=center;verticalAlign=middle;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="40" width="1000" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="badge0" value="?" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffd166;strokeColor=#e0a800;fontSize=26;fontStyle=1;fontColor=#3a2b00;" parent="1" vertex="1">
+          <mxGeometry x="80" y="330" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="box0" value="&lt;b style=&quot;font-size:17px;&quot;&gt;その「1/6」、確かめたことありますか？&lt;/b&gt;&lt;br&gt;&lt;br&gt;6面サイコロのそれぞれの目が1/6の確率で出る——これは当たり前の&amp;quot;現実&amp;quot;のように思えるが、実は数学的概念から来る&amp;quot;推測&amp;quot;に過ぎない。&lt;br&gt;多くの人は、それを自分で確かめずに、ただ&lt;b&gt;信じている&lt;/b&gt;だけかもしれない。" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#fff3cd;strokeColor=#e0a800;fontSize=14;align=left;verticalAlign=middle;spacing=14;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="320" width="920" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="badge1" value="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a8dadc;strokeColor=#1d7874;fontSize=26;fontStyle=1;fontColor=#0b3d3a;" parent="1" vertex="1">
+          <mxGeometry x="80" y="460" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="box1" value="&lt;b style=&quot;font-size:17px;&quot;&gt;直感だけで「確率」は分かるのか？&lt;/b&gt;&lt;br&gt;&lt;br&gt;人が生まれて初めてサイコロを見たとき、出目が6通りあることは直感的に理解できるかもしれない。&lt;br&gt;しかし、&lt;b&gt;確率という知識・認識・社会的常識なし&lt;/b&gt;に、その出目がそれぞれおおよそ1/6で出ると認識できるだろうか？" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#e0f7f6;strokeColor=#1d7874;fontSize=14;align=left;verticalAlign=middle;spacing=14;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="440" width="920" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="badge2" value="2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4a261;strokeColor=#c1440e;fontSize=26;fontStyle=1;fontColor=#4a1e00;" parent="1" vertex="1">
+          <mxGeometry x="80" y="610" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="box2" value="&lt;b style=&quot;font-size:17px;&quot;&gt;⚀⚁⚂&amp;nbsp;チャレンジ開始（出題）：3個のサイコロ&lt;/b&gt;&lt;br&gt;&lt;br&gt;目の前に3個のサイコロ。そのうち&lt;b&gt;1つはイカサマサイコロ&lt;/b&gt;（特定の目が出やすく細工されている）と聞かされた。&lt;br&gt;さて、あなたはどうやって見分ける？&lt;br&gt;&lt;br&gt;&lt;i&gt;→ 作戦：それぞれを同じ回数だけ振り、結果を比較する。&lt;/i&gt;" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#fdebd3;strokeColor=#c1440e;fontSize=14;align=left;verticalAlign=middle;spacing=14;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="580" width="920" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="badge3" value="3" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f28482;strokeColor=#9a1750;fontSize=26;fontStyle=1;fontColor=#4a0016;" parent="1" vertex="1">
+          <mxGeometry x="80" y="770" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="box3" value="&lt;b style=&quot;font-size:17px;&quot;&gt;⚀&amp;nbsp;落とし穴：最初の3回、全部「1」の目&lt;/b&gt;&lt;br&gt;&lt;br&gt;あるサイコロが、最初の3回すべて&quot;ピンの目（1）&quot;を出した。&lt;br&gt;ここでテストを止め、&lt;b&gt;「このサイコロが1が出やすいイカサマサイコロだ」と判断していいのか？&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;i&gt;ちょっと待って…&lt;/i&gt;" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#fde2e1;strokeColor=#9a1750;fontSize=14;align=left;verticalAlign=middle;spacing=14;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="740" width="920" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="badge4" value="4" style="ellipse;whiteSpace=wrap;html=1;fillColor=#90caf9;strokeColor=#0d47a1;fontSize=26;fontStyle=1;fontColor=#0d2b4a;" parent="1" vertex="1">
+          <mxGeometry x="80" y="950" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="box4" value="&lt;b style=&quot;font-size:17px;&quot;&gt;&amp;#128202;&amp;nbsp;数字で考えてみる&lt;/b&gt;&lt;br&gt;&lt;br&gt;イカサマでなくても…&lt;br&gt;・最初の3回、&lt;b&gt;全部「1」&lt;/b&gt;が出る確率　＝　1/216&lt;br&gt;・どの目でもいいので&lt;b&gt;3回連続同じ目&lt;/b&gt;が出る確率　＝　6/216 ＝ 1/36&lt;br&gt;&lt;br&gt;&lt;b&gt;→ 珍しいが、たまには起きる。&lt;/b&gt;この結果だけでは「イカサマだ」と断定すべきではない。" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#0d47a1;fontSize=14;align=left;verticalAlign=middle;spacing=14;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="900" width="920" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="badge5" value="5" style="ellipse;whiteSpace=wrap;html=1;fillColor=#c8b6ff;strokeColor=#5e35b1;fontSize=26;fontStyle=1;fontColor=#2a0d5c;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1105" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="box5" value="&lt;b style=&quot;font-size:17px;&quot;&gt;&amp;#10067;&amp;nbsp;では、何回振れば確信できる？&lt;/b&gt;&lt;br&gt;&lt;br&gt;それぞれのサイコロを&lt;b&gt;何回振れば&lt;/b&gt;、確信を持ってイカサマサイコロを言い当てられるのだろうか？" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#ede7f6;strokeColor=#5e35b1;fontSize=14;align=left;verticalAlign=middle;spacing=14;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="1095" width="920" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="badge6" value="6" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffb4a2;strokeColor=#b5401a;fontSize=26;fontStyle=1;fontColor=#4a1400;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1252.5" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="box6" value="&lt;b style=&quot;font-size:17px;&quot;&gt;🔁&amp;nbsp;さらに、前提条件まで揺らぎ出す&lt;/b&gt;&lt;br&gt;&lt;br&gt;出題者が&lt;i&gt;「あ、もしかしたらイカサマサイコロは2つかな…もしかしたら3つ全部かもしれない…」&lt;/i&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;→ どうすれば、確信を持ってイカサマサイコロを言い当てられるだろうか？&lt;/b&gt;" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#ffe8e1;strokeColor=#b5401a;fontSize=14;align=left;verticalAlign=middle;spacing=14;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="1220" width="920" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="badge7" value="7" style="ellipse;whiteSpace=wrap;html=1;fillColor=#2b2d42;strokeColor=#0f0f1a;fontSize=26;fontStyle=1;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1440" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="box7" value="&lt;b style=&quot;font-size:17px;&quot;&gt;&amp;#127775;&amp;nbsp;究極の問い&lt;/b&gt;&lt;br&gt;&lt;br&gt;あなたが今まで振ってきたサイコロの中に、イカサマサイコロが&lt;b&gt;1つもなかった&lt;/b&gt;と、なぜ信じられるのだろうか？&lt;br&gt;&lt;br&gt;そして私たちはなぜ、6面のサイコロを見た時、ほとんど直観的に「確率は1/6だ」と思ってしまうのだろうか？" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#2b2d42;strokeColor=#0f0f1a;fontColor=#ffffff;fontSize=14;align=left;verticalAlign=middle;spacing=14;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="1390" width="920" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="footer" value="&lt;b style=&quot;font-size:16px;&quot;&gt;こんな問いに、統計とエンジニアリングで挑む——それが Dicelytics です。&lt;/b&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#06d6a0;strokeColor=#04785a;fontColor=#04331f;align=center;verticalAlign=middle;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="1590" width="920" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="endArrow=block;html=1;strokeColor=#666666;strokeWidth=3;rounded=0;" parent="1" source="box0" target="box1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="endArrow=block;html=1;strokeColor=#666666;strokeWidth=3;rounded=0;" parent="1" source="box1" target="box2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="endArrow=block;html=1;strokeColor=#666666;strokeWidth=3;rounded=0;" parent="1" source="box2" target="box3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="endArrow=block;html=1;strokeColor=#666666;strokeWidth=3;rounded=0;" parent="1" source="box3" target="box4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="endArrow=block;html=1;strokeColor=#666666;strokeWidth=3;rounded=0;" parent="1" source="box4" target="box5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="endArrow=block;html=1;strokeColor=#666666;strokeWidth=3;rounded=0;" parent="1" source="box5" target="box6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" style="endArrow=block;html=1;strokeColor=#666666;strokeWidth=3;rounded=0;" parent="1" source="box6" target="box7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" style="endArrow=block;html=1;strokeColor=#666666;strokeWidth=3;rounded=0;" parent="1" source="box7" target="footer" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="deu0NN2QkaewtrAMbBJK-2" value="&lt;b style=&quot;font-size:16px;&quot;&gt;　筐体設計: Autodesk Fusion&lt;br&gt;　筐体加工（レーザーカット): Hajime&lt;br&gt;　マイコンボード: Raspberry Pi Zero 2 W&lt;br&gt;　プログラミング言語: C++&lt;/b&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;　画像処理、画像認識: OpenCV&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dae8fc;align=left;verticalAlign=middle;shadow=1;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1760" width="340" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="deu0NN2QkaewtrAMbBJK-3" value="&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;設備協力：モリイチガレージ&lt;/font&gt;&lt;br&gt;&lt;/b&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dae8fc;align=center;verticalAlign=middle;shadow=1;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" vertex="1" parent="1">
+          <mxGeometry x="710" y="1760" width="360" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="deu0NN2QkaewtrAMbBJK-6" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;　佐藤　真二郎 (フリーランスエンジニア)&lt;br&gt;　Xユーザー名: S.Sato&lt;br&gt;&lt;/b&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b&gt;　LinkdIn: Shinjiro Sato&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;b&gt;　YouTube: 機構設計チャンネル@KikouSekkei&lt;br&gt;&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dae8fc;align=left;verticalAlign=middle;shadow=1;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" vertex="1" parent="1">
+          <mxGeometry x="720" y="1920" width="360" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="deu0NN2QkaewtrAMbBJK-7" value="&lt;b style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;Web Dicelytics (DicelyticsのJavaScript版ブラウザで動くプログラム) Github URL:&lt;br&gt;&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;https://github.com/snjru/001_Web_Dicelytics/blob/main/index.html&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;&lt;/span&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dae8fc;align=left;verticalAlign=middle;shadow=1;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1920" width="520" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
