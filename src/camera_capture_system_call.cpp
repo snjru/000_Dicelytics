@@ -1,4 +1,4 @@
-#include "camera_capture.h"
+#include "camera_capture_system_call.h"
 
 #include <cstdlib>
 #include <sstream>

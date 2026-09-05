@@ -1,9 +1,30 @@
-CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Iinclude
-OPENCV_FLAGS = $(shell pkg-config --cflags --libs opencv4)
+# Compiler and Flags
+CXX      := g++
+CXXFLAGS := -Wall -O2 -Iinclude
+LIBS     := -lgpiodcxx -lgpiod -lrt -lpthread
 
-test_camera_capture: src/camera_capture.cpp tests/test_camera_capture.cpp
-	$(CXX) $(CXXFLAGS) src/camera_capture.cpp tests/test_camera_capture.cpp -o test_camera_capture $(OPENCV_FLAGS)
+# Directories
+SRC_DIR  := src
+TEST_DIR := test
+BIN_DIR  := bin
 
+# Sources
+COMMON_SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+TEST_SRCS   := $(wildcard $(TEST_DIR)/*.cpp)
+
+# Generate target executable names from test files
+TARGETS     := $(patsubst $(TEST_DIR)/%.cpp, $(BIN_DIR)/%, $(TEST_SRCS))
+
+# Default target: build all tests
+all: $(TARGETS)
+
+# Rule to build each test executable
+$(BIN_DIR)/%: $(TEST_DIR)/%.cpp $(COMMON_SRCS)
+	@mkdir -p $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) $< $(COMMON_SRCS) -o $@ $(LIBS)
+
+# Clean up built binaries
 clean:
-	rm -f test_camera_capture
+	rm -rf $(BIN_DIR)
+
+.PHONY: all clean
