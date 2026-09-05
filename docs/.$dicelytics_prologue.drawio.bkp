@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
   <diagram name="Dicelyticsプロローグ" id="dicelytics-prologue-01">
-    <mxGraphModel dx="1410" dy="877" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="2350" math="0" shadow="0">
+    <mxGraphModel dx="4029" dy="2506" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="2350" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -82,17 +82,17 @@
         <mxCell id="e8" style="endArrow=block;html=1;strokeColor=#666666;strokeWidth=3;rounded=0;" parent="1" source="box7" target="footer" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="deu0NN2QkaewtrAMbBJK-2" value="&lt;b style=&quot;font-size:16px;&quot;&gt;　筐体設計: Autodesk Fusion&lt;br&gt;　筐体加工（レーザーカット): Hajime&lt;br&gt;　マイコンボード: Raspberry Pi Zero 2 W&lt;br&gt;　プログラミング言語: C++&lt;/b&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;　画像処理、画像認識: OpenCV&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dae8fc;align=left;verticalAlign=middle;shadow=1;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" parent="1" vertex="1">
+        <mxCell id="deu0NN2QkaewtrAMbBJK-2" value="&lt;b style=&quot;font-size:16px;&quot;&gt;　筐体設計: Autodesk Fusion&lt;br&gt;　筐体加工（レーザーカット): Hajime&lt;br&gt;　マイコンボード: Raspberry Pi Zero 2 W&lt;br&gt;　プログラミング言語: C++&lt;/b&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;　画像処理、画像認識: OpenCV&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dae8fc;align=left;verticalAlign=middle;shadow=1;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" vertex="1" parent="1">
           <mxGeometry x="80" y="1760" width="340" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="deu0NN2QkaewtrAMbBJK-3" value="&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;設備協力：モリイチガレージ&lt;/font&gt;&lt;br&gt;&lt;/b&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dae8fc;align=center;verticalAlign=middle;shadow=1;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" parent="1" vertex="1">
+        <mxCell id="deu0NN2QkaewtrAMbBJK-3" value="&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;設備協力：モリイチガレージ&lt;/font&gt;&lt;br&gt;&lt;/b&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dae8fc;align=center;verticalAlign=middle;shadow=1;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" vertex="1" parent="1">
           <mxGeometry x="710" y="1760" width="360" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="deu0NN2QkaewtrAMbBJK-6" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;　佐藤　真二郎 (フリーランスエンジニア)&lt;br&gt;　Xユーザー名: S.Sato&lt;br&gt;&lt;/b&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b&gt;　LinkdIn: Shinjiro Sato&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;b&gt;　YouTube: 機構設計チャンネル@KikouSekkei&lt;br&gt;&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dae8fc;align=left;verticalAlign=middle;shadow=1;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" parent="1" vertex="1">
+        <mxCell id="deu0NN2QkaewtrAMbBJK-6" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;　佐藤　真二郎 (フリーランスエンジニア)&lt;br&gt;　Xユーザー名: S.Sato&lt;br&gt;&lt;/b&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b&gt;　LinkdIn: Shinjiro Sato&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;b&gt;　YouTube: 機構設計チャンネル@KikouSekkei&lt;br&gt;&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dae8fc;align=left;verticalAlign=middle;shadow=1;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" vertex="1" parent="1">
           <mxGeometry x="720" y="1920" width="360" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="deu0NN2QkaewtrAMbBJK-7" value="&lt;b style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;Web Dicelytics (DicelyticsのJavaScript版ブラウザで動くプログラム) Github URL:&lt;br&gt;&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;https://github.com/snjru/000_Dicelytics/blob/main/Java_Script/Web_Dicelytics.html&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;&lt;/span&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dae8fc;align=left;verticalAlign=middle;shadow=1;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" parent="1" vertex="1">
-          <mxGeometry x="80" y="1920" width="620" height="120" as="geometry" />
+        <mxCell id="deu0NN2QkaewtrAMbBJK-7" value="&lt;b style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;Web Dicelytics (DicelyticsのJavaScript版ブラウザで動くプログラム) Github URL:&lt;br&gt;&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;https://github.com/snjru/001_Web_Dicelytics/blob/main/index.html&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;&lt;/span&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dae8fc;align=left;verticalAlign=middle;shadow=1;strokeColor=#6c8ebf;gradientColor=#7ea6e0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1920" width="520" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
