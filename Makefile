@@ -1,30 +1,35 @@
-# Compiler and Flags
+# Compiler and flags
 CXX      := g++
-CXXFLAGS := -Wall -O2 -Iinclude
-LIBS     := -lgpiodcxx -lgpiod -lrt -lpthread
+CXXFLAGS := -Wall -Wextra -std=c++17 -Iinclude -O2
+BUILD_DIR := build
 
-# Directories
-SRC_DIR  := src
-TEST_DIR := test
-BIN_DIR  := bin
+# Default target: builds the main application
+all: $(BUILD_DIR)/app
 
-# Sources
-COMMON_SRCS := $(wildcard $(SRC_DIR)/*.cpp)
-TEST_SRCS   := $(wildcard $(TEST_DIR)/*.cpp)
+# ------------------------------------------------------------------------------
+# Main Application Build Rule
+# ------------------------------------------------------------------------------
+# Compiles main.cpp and all helper modules located in src/
+$(BUILD_DIR)/app: src/main.cpp src/sensor.cpp src/motor.cpp
+	@mkdir -p $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
-# Generate target executable names from test files
-TARGETS     := $(patsubst $(TEST_DIR)/%.cpp, $(BIN_DIR)/%, $(TEST_SRCS))
+# ------------------------------------------------------------------------------
+# Unit Test Build Rules (tests/)
+# ------------------------------------------------------------------------------
+# Example: Camera capture unit test
+test_camera: tests/test_camera_capture.cpp src/camera.cpp
+	@mkdir -p $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $^ -o $(BUILD_DIR)/test_camera
 
-# Default target: build all tests
-all: $(TARGETS)
+# Run all test targets
+test_all: test_camera
 
-# Rule to build each test executable
-$(BIN_DIR)/%: $(TEST_DIR)/%.cpp $(COMMON_SRCS)
-	@mkdir -p $(BIN_DIR)
-	$(CXX) $(CXXFLAGS) $< $(COMMON_SRCS) -o $@ $(LIBS)
-
-# Clean up built binaries
+# ------------------------------------------------------------------------------
+# Cleanup Rule
+# ------------------------------------------------------------------------------
+# Removes all compiled binaries and object files from build/
 clean:
-	rm -rf $(BIN_DIR)
+	rm -rf $(BUILD_DIR)/*
 
-.PHONY: all clean
+.PHONY: all test_all clean
